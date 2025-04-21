@@ -16,7 +16,7 @@ const ScrollCounter = () => {
   return (
     <div className="scroll--wrapper">
       {/* img that will be changed on scrolling */}
-      <div className="scroll--container">
+      <div className="scroll--img--container">
         <img
           onAnimationEnd={() => setTransition(false)}
           src={data[activeIndex].image}
