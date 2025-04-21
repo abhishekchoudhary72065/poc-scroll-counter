@@ -18,7 +18,7 @@ main {
   width: 100%;
   background: linear-gradient(to right, $bg1, $bg2);
   display: flex;
-  gap: 5rem;
+  gap: 2rem;
 
   .scroll__img {
     height: 800px;
@@ -50,7 +50,7 @@ main {
         // justify-content: center;
         gap: 1.5rem;
         opacity: 0.5;
-        scale: 0.95;
+        scale: 0.9;
         transition: 0.3s linear;
 
         .dot {
@@ -61,23 +61,31 @@ main {
           background: white;
         }
         .number {
-          font-size: 1.5rem;
+          font-size: 1.8rem;
         }
         .text {
-          font-size: 2.5rem;
+          font-size: 40px;
         }
 
         // .swiper--comp
         &.active {
           opacity: 1;
           scale: 1;
-          // transform: translateX(0);
+          transform: translateX(100px);
         }
-        // &.active {
-        //   .number {
-        //     font-size: 1.8rem;
-        //   }
-        // }
+        &.prev--slide--2 {
+          transform: translateX(-60px);
+        }
+        &.prev--slide--1 {
+          transform: translateX(10px);
+        }
+
+        &.next--slide--2 {
+          transform: translateX(-60px);
+        }
+        &.next--slide--1 {
+          transform: translateX(10px);
+        }
       }
     }
   }

@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import "swiper/css/pagination";
 import { Mousewheel } from "swiper/modules";
+import SliderComp from "./SliderComp";
 
 const slides = [
   "Why Study Abroad?",
@@ -21,8 +22,6 @@ const slides = [
 export default function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef();
-  console.log(activeIndex);
-
   return (
     <div className="slider">
       {/* Wrapper for Swiper */}
@@ -36,6 +35,7 @@ export default function Slider() {
           centeredSlides={true}
           slidesPerView={5}
           slidesPerGroup={1}
+          initialSlide={2}
           direction="vertical"
           modules={[Mousewheel]}
           mousewheel={{
@@ -49,26 +49,16 @@ export default function Slider() {
           preventInteractionOnTransition={true}
           onSlideChange={(swiper) => {
             setActiveIndex(swiper.realIndex);
+            // setActiveIndex(swiper.activeIndex);
           }}
         >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div
-                style={{
-                  transform:
-                    index > activeIndex
-                      ? `translateX(${index - activeIndex * 10 + 10}px)`
-                      : `translateX(${index * 10 + 10}px)`,
-                }}
-                className={`swiper--comp ${index === activeIndex && "active"}`}
-              >
-                {/* Index dots */}
-                <span className="dot"></span>
-                <span className="number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h1 className="text">{slide}</h1>
-              </div>
+              <SliderComp
+                index={index}
+                slide={slide}
+                activeIndex={activeIndex}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
