@@ -23,11 +23,13 @@ const ScrollCounter = () => {
   return (
     <div className="scroll--wrapper">
       {/* img that will be changed on scrolling */}
-      <img
-        src="https://cdn.pixabay.com/photo/2014/08/13/18/09/airline-417540_640.jpg"
-        className="scroll__img"
-        alt=""
-      />
+      <div className="scroll--container">
+        <img
+          src="https://cdn.pixabay.com/photo/2014/08/13/18/09/airline-417540_640.jpg"
+          className="scroll__img"
+          alt=""
+        />
+      </div>
       {/* Sidebar */}
       <Slider />
     </div>

@@ -5,6 +5,7 @@ import "swiper/css/scrollbar";
 import "swiper/css/pagination";
 import { Mousewheel } from "swiper/modules";
 import SliderComp from "./SliderComp";
+import { getClass } from "../utils/getClass";
 
 const slides = [
   "Why Study Abroad?",
@@ -22,6 +23,7 @@ const slides = [
 export default function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef();
+  console.log(activeIndex);
   return (
     <div className="slider">
       {/* Wrapper for Swiper */}
@@ -30,7 +32,7 @@ export default function Slider() {
           onBeforeInit={(swiper) => {
             swiperRef.current = swiper;
           }}
-          spaceBetween={50}
+          spaceBetween={120}
           loop={true}
           centeredSlides={true}
           slidesPerView={5}
@@ -52,15 +54,33 @@ export default function Slider() {
             // setActiveIndex(swiper.activeIndex);
           }}
         >
-          {slides.map((slide, index) => (
-            <SwiperSlide key={index}>
-              <SliderComp
-                index={index}
-                slide={slide}
-                activeIndex={activeIndex}
-              />
-            </SwiperSlide>
-          ))}
+          {slides.map((slide, index) => {
+            // const classes =
+            //   index === activeIndex
+            //     ? "active"
+            //     : index < activeIndex
+            //     ? index <= 2
+            //       ? `prev--slide--${activeIndex - index}`
+            //       : ""
+            //     : index > activeIndex
+            //     ? index - activeIndex <= 2
+            //       ? `next--slide--${index - activeIndex}`
+            //       : ""
+            //     : "";
+            // console.log({ index, classes, activeIndex });
+            const classes = getClass(index, activeIndex);
+            // console.log({ classes, index, activeIndex });
+
+            return (
+              <SwiperSlide className={`${classes}`} key={index}>
+                <SliderComp
+                  index={index}
+                  slide={slide}
+                  activeIndex={activeIndex}
+                />
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </div>

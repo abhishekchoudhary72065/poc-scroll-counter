@@ -18,21 +18,67 @@ main {
   width: 100%;
   background: linear-gradient(to right, $bg1, $bg2);
   display: flex;
-  gap: 2rem;
+  // gap: 2rem;
 
-  .scroll__img {
-    height: 800px;
+  .scroll--container {
+    position: relative;
+    height: 100%;
     width: 800px;
+    padding-right: 60px;
     border-radius: 0 738px 738px 0;
-    object-fit: cover;
+    // border-right: 3px solid white;
+
+    &::after {
+      position: absolute;
+      content: "";
+      background-image: url("/bullet.png");
+      background-size: contain;
+      top: 0;
+      right: -200px;
+      width: 100%;
+      height: 100%;
+      z-index: 44;
+    }
+
+    .scroll__img {
+      height: 800px;
+      width: 100%;
+      border-radius: 0 738px 738px 0;
+      object-fit: cover;
+    }
+
+    .dots--container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: absolute;
+      height: 100%;
+      padding: 4rem 0;
+      right: 0px;
+      top: 0;
+      .dot {
+        width: 10px;
+        height: 10px;
+        background: white;
+        opacity: 0.5;
+        border-radius: 50%;
+        &:nth-child(1) {
+          position: absolute;
+          top: 50px;
+          right: 100px;
+          background: blue;
+        }
+        &.active-dot {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   // Swiper Styling
   .slider {
     height: inherit;
-    padding: 10px;
     flex: 1;
-    overflow: hidden;
     width: 100%;
     .swiper--container {
       display: flex;
@@ -41,7 +87,34 @@ main {
       .swiper {
         overflow: hidden;
         width: 100%;
+        padding-top: 50px;
         flex: 1;
+      }
+      .swiper-slide {
+        opacity: 0.5;
+        scale: 0.9;
+        transition: 0.3s linear;
+        // .swiper--comp
+
+        &.active {
+          opacity: 1;
+          scale: 1;
+          transform: translate(100px, -20px);
+        }
+        &.prev--slide--2 {
+          transform: translate(-60px, 0);
+        }
+        &.prev--slide--1 {
+          // transform: translateX(30px);
+          transform: translate(0, -10px);
+        }
+
+        &.next--slide--1 {
+          transform: translate(-10px, 5px);
+        }
+        &.next--slide--2 {
+          transform: translate(-60px, -40px);
+        }
       }
       .swiper--comp {
         display: flex;
@@ -49,9 +122,6 @@ main {
         align-items: center;
         // justify-content: center;
         gap: 1.5rem;
-        opacity: 0.5;
-        scale: 0.9;
-        transition: 0.3s linear;
 
         .dot {
           $dimensions: 10px;
@@ -61,30 +131,10 @@ main {
           background: white;
         }
         .number {
-          font-size: 1.8rem;
+          font-size: 2.2rem;
         }
         .text {
           font-size: 40px;
-        }
-
-        // .swiper--comp
-        &.active {
-          opacity: 1;
-          scale: 1;
-          transform: translateX(100px);
-        }
-        &.prev--slide--2 {
-          transform: translateX(-60px);
-        }
-        &.prev--slide--1 {
-          transform: translateX(10px);
-        }
-
-        &.next--slide--2 {
-          transform: translateX(-60px);
-        }
-        &.next--slide--1 {
-          transform: translateX(10px);
         }
       }
     }
