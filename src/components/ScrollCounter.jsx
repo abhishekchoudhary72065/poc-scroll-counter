@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "./Slider";
 import { data } from "../utils/getClass";
+import BulletSvg from "./BulletSvg";
 
 const ScrollCounter = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -10,7 +11,7 @@ const ScrollCounter = () => {
     if (isTransition) return;
     setTransition(true);
   }, [activeIndex]);
-  console.log(isTransition);
+  // console.log(isTransition);
 
   return (
     <div className="scroll--wrapper">
@@ -23,7 +24,7 @@ const ScrollCounter = () => {
           alt={data[activeIndex].text}
         />
       </div>
-      {/* dots */}
+      <BulletSvg />
       {/* Sidebar */}
       <Slider setActiveIndex={setActiveIndex} activeIndex={activeIndex} />
     </div>

@@ -19,38 +19,32 @@ main {
   width: 100%;
   background: linear-gradient(to right, $bg1, $bg2);
   display: flex;
-  // gap: 2rem;
+  position: relative;
+
+  .bullet--svg {
+    position: absolute;
+    top: 0;
+    left: 320px;
+    transform: -translateX(-50%);
+    z-index: 44;
+    height: 100%;
+    width: fit;
+    svg {
+      height: 800px;
+    }
+  }
 
   .scroll--container {
-    position: relative;
     height: 100%;
-    // width: 700px;
     flex-basis: 30%;
     width: 100%;
-    padding-right: 50px;
     border-radius: 0 738px 738px 0;
+    // border-right: 2px solid blue;
 
     @media (min-width: 1050px) {
       flex-basis: 50%;
-      padding-right: 150px;
+      padding-right: 100px;
     }
-    // border-right: 3px solid white;
-
-    &::after {
-      position: absolute;
-      content: "";
-      background-image: url("/bullet.png");
-      background-repeat: no-repeat;
-      // background-size: cover 100%;
-      background-size: contain cover;
-      top: 0;
-      // right: -28%;
-      right: 0;
-      width: 800px;
-      height: 100%;
-      z-index: 44;
-    }
-
     .scroll__img {
       height: 800px;
       width: 100%;
@@ -58,17 +52,9 @@ main {
       object-fit: cover;
 
       &.animate {
-        animation: anim 0.5s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        animation: anim 400ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
       }
     }
-  }
-  .dots--container {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    height: 800px;
-    width: 50px;
-    background: white;
   }
 
   // Swiper Styling
@@ -84,6 +70,7 @@ main {
         overflow: hidden;
         width: 100%;
         padding-top: 50px;
+        // border-left: 2px solid red;
         flex: 1;
       }
       .swiper-slide {
@@ -95,21 +82,21 @@ main {
         &.active {
           opacity: 1;
           scale: 1;
-          transform: translate(50px, 5px);
+          transform: translate(50px, -20px);
         }
         &.prev--slide--2 {
           transform: translate(-50px, 0);
         }
         &.prev--slide--1 {
           // transform: translateX(30px);
-          transform: translate(10px, 0px);
+          transform: translate(-20px, 0px);
         }
 
         &.next--slide--1 {
-          transform: translate(-10px, 50px);
+          transform: translate(-10px, 0px);
         }
         &.next--slide--2 {
-          transform: translate(-45px, 0px);
+          transform: translate(-45px, -50px);
         }
       }
       .swiper--comp {

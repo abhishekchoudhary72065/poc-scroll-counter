@@ -27,8 +27,8 @@ export default function Slider({ activeIndex, setActiveIndex }) {
           modules={[Mousewheel]}
           mousewheel={{
             enabled: true,
-            sensitivity: 1,
-            thresholdDelta: 50,
+            sensitivity: 0.8,
+            thresholdDelta: 70,
             releaseOnEdges: true,
           }}
           speed={400}
