@@ -8,7 +8,7 @@ const SliderComp = ({ slide, index }) => {
       {/* Index dots */}
       {/* <span className="dot"></span> */}
       <span className="number">{String(index + 1).padStart(2, "0")}</span>
-      <h1 className="text">{slide}</h1>
+      <h1 className="text">{slide.text}</h1>
     </div>
   );
 };

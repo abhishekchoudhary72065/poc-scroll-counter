@@ -5,23 +5,9 @@ import "swiper/css/scrollbar";
 import "swiper/css/pagination";
 import { Mousewheel } from "swiper/modules";
 import SliderComp from "./SliderComp";
-import { getClass } from "../utils/getClass";
+import { data, getClass } from "../utils/getClass";
 
-const slides = [
-  "Why Study Abroad?",
-  "Where and what to study?",
-  "How do I Apply?",
-  "Prepare to depart",
-  "Arrive and thrive",
-  "This is slide active 6",
-  "This is slide active 7",
-  "This is slide active 8",
-  "This is slide active 9",
-  "This is slide active 10",
-];
-
-export default function Slider() {
-  const [activeIndex, setActiveIndex] = useState(0);
+export default function Slider({ activeIndex, setActiveIndex }) {
   const swiperRef = useRef();
   console.log(activeIndex);
   return (
@@ -51,26 +37,10 @@ export default function Slider() {
           preventInteractionOnTransition={true}
           onSlideChange={(swiper) => {
             setActiveIndex(swiper.realIndex);
-            // setActiveIndex(swiper.activeIndex);
           }}
         >
-          {slides.map((slide, index) => {
-            // const classes =
-            //   index === activeIndex
-            //     ? "active"
-            //     : index < activeIndex
-            //     ? index <= 2
-            //       ? `prev--slide--${activeIndex - index}`
-            //       : ""
-            //     : index > activeIndex
-            //     ? index - activeIndex <= 2
-            //       ? `next--slide--${index - activeIndex}`
-            //       : ""
-            //     : "";
-            // console.log({ index, classes, activeIndex });
+          {data.map((slide, index) => {
             const classes = getClass(index, activeIndex);
-            // console.log({ classes, index, activeIndex });
-
             return (
               <SwiperSlide className={`${classes}`} key={index}>
                 <SliderComp
