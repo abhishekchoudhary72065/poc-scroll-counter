@@ -6,16 +6,6 @@ const ScrollCounter = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransition, setTransition] = useState(false);
 
-  // useEffect(() => {
-  //   if (!isTransition) return;
-  //   let timeout = setTimeout(() => {
-  //     setTransition(false);
-  //   }, 600);
-  //   return () => {
-  //     clearTimeout(timeout);
-  //   };
-  // }, [isTransition]);
-
   useEffect(() => {
     if (isTransition) return;
     setTransition(true);
