@@ -8,7 +8,10 @@ const ScrollCounter = () => {
   const [isTransition, setTransition] = useState(false);
 
   useEffect(() => {
-    if (isTransition) return;
+    if (isTransition) {
+      setTransition(false);
+      return;
+    }
     setTransition(true);
   }, [activeIndex]);
   // console.log(isTransition);
@@ -19,6 +22,7 @@ const ScrollCounter = () => {
       <div className="scroll--img--container">
         <img
           onAnimationEnd={() => setTransition(false)}
+          onAnimationEndCapture={() => console.log("animation ended")}
           src={data[activeIndex].image}
           className={`scroll__img ${isTransition && "animate"}`}
           alt={data[activeIndex].text}

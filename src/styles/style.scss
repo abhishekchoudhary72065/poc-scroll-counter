@@ -24,8 +24,8 @@ main {
   .bullet--svg {
     position: absolute;
     top: 0;
-    left: 320px;
-    transform: -translateX(-50%);
+    left: 15%;
+    // transform: -translateX(-20%);
     z-index: 44;
     height: 100%;
     width: fit;
@@ -52,7 +52,7 @@ main {
       object-fit: cover;
 
       &.animate {
-        animation: anim 400ms cubic-bezier(0.19, 1, 0.22, 1) forwards;
+        animation: slide-anim 400ms linear forwards;
       }
     }
   }
@@ -124,7 +124,7 @@ main {
   }
 }
 
-@keyframes anim {
+@keyframes slide-anim {
   from {
     transform: translateX(-100%);
   }
