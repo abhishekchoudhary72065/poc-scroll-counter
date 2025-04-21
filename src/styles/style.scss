@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$bg1: #156ea8;
+$bg2: #4cb8fe;
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.scroll--wrapper {
+  height: 800px;
+  width: 100%;
+  background: linear-gradient(to right, $bg1, $bg2);
+  display: flex;
+  gap: 5rem;
+
+  .scroll__img {
+    height: 800px;
+    width: 800px;
+    border-radius: 0 738px 738px 0;
+    object-fit: cover;
+  }
+
+  // Swiper Styling
+  .slider {
+    height: inherit;
+    padding: 10px;
+    flex: 1;
+    overflow: hidden;
+    width: 100%;
+    .swiper--container {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      .swiper {
+        overflow: hidden;
+        width: 100%;
+        flex: 1;
+      }
+      .swiper--comp {
+        display: flex;
+        color: white;
+        align-items: center;
+        // justify-content: center;
+        gap: 1.5rem;
+        opacity: 0.5;
+        scale: 0.95;
+        transition: 0.3s linear;
+
+        .dot {
+          $dimensions: 10px;
+          width: $dimensions;
+          height: $dimensions;
+          border-radius: 50%;
+          background: white;
+        }
+        .number {
+          font-size: 1.5rem;
+        }
+        .text {
+          font-size: 2.5rem;
+        }
+
+        // .swiper--comp
+        &.active {
+          opacity: 1;
+          scale: 1;
+          // transform: translateX(0);
+        }
+        // &.active {
+        //   .number {
+        //     font-size: 1.8rem;
+        //   }
+        // }
+      }
+    }
+  }
+}

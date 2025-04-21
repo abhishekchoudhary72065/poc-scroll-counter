@@ -1,0 +1,2 @@
+1. -> first make the slider comp with only steps data & dont' worry about the navbar leave it.
+2. -> leave the navbar & image for last.
