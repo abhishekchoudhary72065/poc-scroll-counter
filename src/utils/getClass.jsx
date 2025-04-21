@@ -1,7 +1,5 @@
 export const getClass = (index, activeIndex) => {
-  //   if (!index || !activeIndex) return;
   if (activeIndex === 0 && index === 0) {
-    console.log("hello");
     return "active";
   }
   if (index > activeIndex) {

@@ -9,7 +9,6 @@ import { data, getClass } from "../utils/getClass";
 
 export default function Slider({ activeIndex, setActiveIndex }) {
   const swiperRef = useRef();
-  console.log(activeIndex);
   return (
     <div className="slider">
       {/* Wrapper for Swiper */}
@@ -32,7 +31,7 @@ export default function Slider({ activeIndex, setActiveIndex }) {
             thresholdDelta: 50,
             releaseOnEdges: true,
           }}
-          speed={500}
+          speed={400}
           className="swiper"
           preventInteractionOnTransition={true}
           onSlideChange={(swiper) => {
